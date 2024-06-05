@@ -10,7 +10,7 @@ func GitAlias() {
 
 	GITCONFIG_PATH := "$HOME/.gitconfig"
 
-	installCmd := `
+	createGitConfigFile := `
 	GITCONFIG_PATH=%s
 	if [[ ! -f "$GITCONFIG_PATH" ]]; then
 	  sudo su $USER -c "touch ${GITCONFIG_PATH}"
@@ -21,7 +21,15 @@ func GitAlias() {
 	fi
 	`
 
-	installCmd = fmt.Sprintf(installCmd, GITCONFIG_PATH)
+	insertAliasZone := `
+	GITCONFIG_PATH=%s
+	if ! sed -n '/\[alias\]/p' $GITCONFIG_PATH | grep '[alias]'; then
+	  sudo su $USER -c "printf '[alias]\n' >> $GITCONFIG_PATH"
+	fi
+	`
+
+	createGitConfigFile = fmt.Sprintf(createGitConfigFile, GITCONFIG_PATH)
+	insertAliasZone = fmt.Sprintf(insertAliasZone, GITCONFIG_PATH)
 
 	insertStr := fmt.Sprintf(`cat <<EOF > %s
 st = status
@@ -41,9 +49,7 @@ sl = stash list --pretty=format:\"%%C(red)%%h%%(reset) - %%C(dim yellow)(%%C(bol
 EOF
 `, GITCONFIG_PATH)
 
-
-	commands := []string{installCmd, insertStr}
-	fmt.Println(commands)
+	commands := []string{createGitConfigFile, insertAliasZone, insertStr}
 
 	core.ExecuteCommands(commands)
 }

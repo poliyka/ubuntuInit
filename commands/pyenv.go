@@ -40,7 +40,7 @@ fi
 
 	// 定義需要執行的命令
 	commands := []string{
-		`sudo su $OE_USER -c "curl -L https://raw.github.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash"`,
+		`sudo su $USER -c "curl -L https://raw.github.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash"`,
 	}
 
 	// 根據不同的 shell 配置，追加對應的命令

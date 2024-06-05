@@ -18,6 +18,7 @@ func HandleError(cmd *exec.Cmd) error {
 	cmd.Stderr = &stderrBuf
 
 	err := cmd.Run()
+
 	if err != nil {
 
 		// 讀取 stderrBuf 中的錯誤訊息

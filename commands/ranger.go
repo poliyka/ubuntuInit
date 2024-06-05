@@ -12,7 +12,7 @@ func Ranger() {
 		"sudo su - -c \"cd ${HOME}/ranger; make install\"",
 		"sudo su $USER -c \"ranger --copy-config=all\"",
 		"sudo rm -rf $HOME/ranger",
-		` sed -i -e '$a\
+				`sed -i -e '$a\
 \nclass code(Command):\
     def execute(self):\
         dirname = self.fm.thisdir.path\

@@ -12,7 +12,7 @@ func Ranger() {
 		`sudo su - -c "cd ${HOME}/ranger; make install"`,
 		`sudo su $USER -c "ranger --copy-config=all"`,
 		"sudo rm -rf $HOME/ranger",
-				`sed -i -e '$a\
+		`sed -i -e '$a\
 \nclass code(Command):\
     def execute(self):\
         dirname = self.fm.thisdir.path\
@@ -21,5 +21,12 @@ func Ranger() {
 ' $HOME/.config/ranger/commands.py`,
 	}
 
-	core.ExecuteCommands(commands)
+	err := core.ExecuteCommands(commands)
+
+	// 當發生錯誤時因該要刪掉 ranger 資料夾
+	if err != nil {
+		commands := []string{"sudo rm -rf $HOME/ranger"}
+		core.ExecuteCommands(commands)
+	}
+
 }

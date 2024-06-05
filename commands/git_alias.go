@@ -41,7 +41,7 @@ sl = stash list --pretty=format:\"%C(red)%h%C(reset) - %C(dim yellow)(%C(bold ma
 `
 
 	commands := []string{installCmd}
-	commands = append(commands, fmt.Sprintf(`sudo su $USER -c "echo '%s' >> %s"`, insertStr, GITCONFIG_PATH))
+	commands = append(commands, fmt.Sprintf(`echo '%s' >> %s`, insertStr, GITCONFIG_PATH))
 
 	core.ExecuteCommands(commands)
 }

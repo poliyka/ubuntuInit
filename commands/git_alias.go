@@ -6,7 +6,7 @@ import (
 )
 
 func GitAlias() {
-	fmt.Println(core.StdGreen("Installing BashColor"))
+	fmt.Println(core.StdGreen("Installing GitAlias"))
 
 	GITCONFIG_PATH := "$HOME/.gitconfig"
 
@@ -15,16 +15,12 @@ func GitAlias() {
 	if [[ ! -f "$GITCONFIG_PATH" ]]; then
 	  sudo su $USER -c "touch ${GITCONFIG_PATH}"
 	fi
-
-	if ! sed -n '/\[alias\]/p' $GITCONFIG_PATH | grep '[alias]'; then
-	  sudo su $USER -c "printf '[alias]\n' >> $GITCONFIG_PATH"
-	fi
 	`
 
 	insertAliasZone := `
 	GITCONFIG_PATH=%s
 	if ! sed -n '/\[alias\]/p' $GITCONFIG_PATH | grep '[alias]'; then
-	  sudo su $USER -c "printf '[alias]\n' >> $GITCONFIG_PATH"
+	  echo "'[alias]\n' >> $GITCONFIG_PATH"
 	fi
 	`
 

@@ -3,7 +3,7 @@
 ## Usage
 
 ```sh
-sudo ./install.sh
+sudo ./install
 ```
 
 安裝完成後

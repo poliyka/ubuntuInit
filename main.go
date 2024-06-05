@@ -47,8 +47,8 @@ func main() {
 			commands.Yarn()
 		case "Pyenv":
 			commands.Pyenv()
-			// case "Fzf":
-			// 	commands.Fzf()
+		case "Fzf":
+			commands.Fzf()
 			// case "BashColor":
 			// 	commands.BashColor()
 			// case "GitAlias":

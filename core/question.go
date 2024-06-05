@@ -15,7 +15,7 @@ var QS = []*survey.Question{
 	{
 		Name: "CommonLibs",
 		Prompt: &survey.Confirm{
-			Message: "Did you want to common lib?",
+			Message: "Did you want to install common lib? (Ref: https://github.com/poliyka/ubuntuInit/blob/main/commands/common_libs.go)",
 		},
 	},
 	{

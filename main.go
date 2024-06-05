@@ -34,10 +34,10 @@ func main() {
 		switch choice {
 		case "Ranger":
 			commands.Ranger()
-			// case "Nvm":
-			// 	commands.Nvm()
-			// case "Yarn":
-			// 	commands.Yarn()
+			case "Nvm":
+				commands.Nvm()
+			case "Yarn":
+				commands.Yarn()
 			// case "Pyenv":
 			// 	commands.Pyenv()
 			// case "Fzf":

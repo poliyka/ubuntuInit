@@ -17,7 +17,7 @@ func GitAlias() {
 	fi
 
 	if ! sed -n '/\[alias\]/p' $GITCONFIG_PATH | grep '[alias]'; then
-	  sudo su $OE_USER -c "printf '[alias]\n' >> $GITCONFIG_PATH"
+	  sudo su $USER -c "printf '[alias]\n' >> $GITCONFIG_PATH"
 	fi
 	`
 

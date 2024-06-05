@@ -51,8 +51,8 @@ func main() {
 			commands.Fzf()
 		case "BashColor":
 			commands.BashColor()
-			// case "GitAlias":
-			// 	commands.GitAlias()
+		case "GitAlias":
+			commands.GitAlias()
 		}
 	}
 }

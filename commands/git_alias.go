@@ -19,8 +19,8 @@ func GitAlias() {
 
 	insertAliasZone := `
 	GITCONFIG_PATH=%s
-	if ! sed -n '/\[alias\]/p' $GITCONFIG_PATH | grep '[alias]'; then
-	  echo "'[alias]\n' >> $GITCONFIG_PATH"
+	if ! sed -n '/\\[alias\\]/p' $GITCONFIG_PATH | grep '\\[alias\\]'; then
+	  echo "[alias]" >> $GITCONFIG_PATH
 	fi
 	`
 

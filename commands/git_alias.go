@@ -27,7 +27,7 @@ func GitAlias() {
 	createGitConfigFile = fmt.Sprintf(createGitConfigFile, GITCONFIG_PATH)
 	insertAliasZone = fmt.Sprintf(insertAliasZone, GITCONFIG_PATH)
 
-	insertStr := fmt.Sprintf(`cat <<EOF > %s
+	insertStr := fmt.Sprintf(`cat <<EOF >> %s
 st = status
 cm = commit
 ch = checkout

@@ -55,4 +55,31 @@ func main() {
 			commands.GitAlias()
 		}
 	}
+
+	// print the final message
+	fmt.Println(core.StdGreen("===================================="))
+	fmt.Println("Done! Ubuntu Initialize Dependencies:")
+	// print TerminalType
+	fmt.Println("TerminalType: " + core.StdGreen(resp.TerminalType))
+	// print InstallChoices
+	for _, qs := range core.QS {
+		if qs.Name == "InstallChoices" {
+			// 進行型別斷言
+			if mp, ok := qs.Prompt.(*survey.MultiSelect); ok {
+				for _, choice := range mp.Options {
+					compare := core.MapContains(resp.InstallChoices, choice)
+					if compare {
+						fmt.Println(choice, "=", core.StdGreen(compare))
+					} else {
+						fmt.Println(choice, "=", core.StdRed(compare))
+					}
+				}
+
+			}
+			break
+		}
+	}
+	fmt.Println("Finished. Restart your shell or reload config file.")
+	fmt.Println(core.StdYellow("source ~/.bashrc"))
+	fmt.Println(core.StdGreen("===================================="))
 }

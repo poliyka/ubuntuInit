@@ -7,6 +7,13 @@ import (
 // 定義問題
 var QS = []*survey.Question{
 	{
+		Name: "TerminalType",
+		Prompt: &survey.Select{
+			Message: "Which terminal do you use?",
+			Options: []string{"Bash", "Zsh"},
+		},
+	},
+	{
 		Name: "UpdateAndUpgrade",
 		Prompt: &survey.Confirm{
 			Message: "Did you want to run 'sudo apt update && sudo apt upgrade'?",

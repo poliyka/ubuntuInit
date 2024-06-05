@@ -9,37 +9,44 @@ import (
 
 func main() {
 	// 創建一個新的配置實例
-	config := &core.Config{}
+	resp := &core.Response{}
 
 	// 啟動問題並存儲回答
-	err := survey.Ask(core.QS, config)
+	err := survey.Ask(core.QS, resp)
 	if err != nil {
 		fmt.Println("Failed to execute survey:", err)
 		return
 	}
 
 	// 輸出收集到的配置信息
+	switch resp.TerminalType {
+	case "Bash":
+		core.RcPath = "~/.bashrc"
+	case "Zsh":
+		core.RcPath = "~/.zshrc"
+	}
+
 	// if update and upgrade is selected, run update and upgrade
-	if config.UpdateAndUpgrade {
+	if resp.UpdateAndUpgrade {
 		commands.UpdateAndUpgrade()
 	}
 
 	// if common libs is selected, install common libs
-	if config.CommonLibs {
+	if resp.CommonLibs {
 		commands.CommonLibs()
 	}
 
 	// if ranger is selected, install ranger
-	for _, choice := range config.InstallChoices {
+	for _, choice := range resp.InstallChoices {
 		switch choice {
 		case "Ranger":
 			commands.Ranger()
-			case "Nvm":
-				commands.Nvm()
-			case "Yarn":
-				commands.Yarn()
-			// case "Pyenv":
-			// 	commands.Pyenv()
+		case "Nvm":
+			commands.Nvm()
+		case "Yarn":
+			commands.Yarn()
+		case "Pyenv":
+			commands.Pyenv()
 			// case "Fzf":
 			// 	commands.Fzf()
 			// case "BashColor":

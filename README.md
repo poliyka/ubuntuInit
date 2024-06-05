@@ -1,4 +1,4 @@
-# Ubuntu 20.04 初始化腳本
+# Ubuntu 初始化腳本
 
 ## Usage
 

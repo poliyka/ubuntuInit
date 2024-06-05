@@ -19,14 +19,33 @@ func main() {
 	}
 
 	// 輸出收集到的配置信息
-
-	fmt.Printf("Update && Upgrade: %t\n", config.UpdateAndUpgrade)
+	// if update and upgrade is selected, run update and upgrade
 	if config.UpdateAndUpgrade {
 		commands.UpdateAndUpgrade()
 	}
-	fmt.Printf("Update && Upgrade: %t\n", config.CommonLibs)
+
+	// if common libs is selected, install common libs
 	if config.CommonLibs {
 		commands.CommonLibs()
 	}
-	fmt.Printf("Package Choices: %v\n", config.InstallChoices)
+
+	// if ranger is selected, install ranger
+	for _, choice := range config.InstallChoices {
+		switch choice {
+		case "Ranger":
+			commands.Ranger()
+			// case "Nvm":
+			// 	commands.Nvm()
+			// case "Yarn":
+			// 	commands.Yarn()
+			// case "Pyenv":
+			// 	commands.Pyenv()
+			// case "Fzf":
+			// 	commands.Fzf()
+			// case "BashColor":
+			// 	commands.BashColor()
+			// case "GitAlias":
+			// 	commands.GitAlias()
+		}
+	}
 }

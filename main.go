@@ -42,13 +42,19 @@ func main() {
 		case "Ranger":
 			commands.Ranger()
 		case "Nvm":
-			commands.Nvm()
+			go func() {
+				commands.Nvm()
+			}()
 		case "Yarn":
-			commands.Yarn()
+			go func() {
+				commands.Yarn()
+			}()
 		case "Pyenv":
 			commands.Pyenv()
 		case "Fzf":
-			commands.Fzf()
+			go func() {
+				commands.Fzf()
+			}()
 		case "BashColor":
 			commands.BashColor()
 		case "GitAlias":

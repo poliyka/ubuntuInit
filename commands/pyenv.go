@@ -6,6 +6,8 @@ import (
 )
 
 func Pyenv() {
+	defer core.Wg.Done()
+
 	fmt.Println(core.StdGreen("Installing Pyenv"))
 
 	// 定義 .bashrc 配置內容

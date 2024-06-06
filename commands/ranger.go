@@ -6,6 +6,8 @@ import (
 )
 
 func Ranger() {
+	defer core.Wg.Done()
+
 	fmt.Println(core.StdGreen("Installing Ranger"))
 	commands := []string{
 		"sudo git clone https://github.com/ranger/ranger.git $HOME/ranger",

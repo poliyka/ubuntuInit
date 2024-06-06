@@ -5,6 +5,8 @@ import (
 )
 
 func CommonLibs() {
+	defer core.Wg.Done()
+
 	commands := []string{
 		"sudo apt-get install python3-venv python3-wheel libxslt-dev libzip-dev libldap2-dev libsasl2-dev -y",
 		"sudo apt-get install python3-setuptools node-less libjpeg-dev gdebi python3-virtualenv -y",

@@ -27,37 +27,40 @@ func main() {
 		core.RcPath = "~/.zshrc"
 	}
 
+	// get sudo permission first
+	commands.Sudo()
+
 	// if update and upgrade is selected, run update and upgrade
 	if resp.UpdateAndUpgrade {
-		commands.UpdateAndUpgrade()
+		go commands.UpdateAndUpgrade()
 	}
 
 	// if common libs is selected, install common libs
 	if resp.CommonLibs {
-		commands.CommonLibs()
+		go commands.CommonLibs()
 	}
 
 	// if ranger is selected, install ranger
 	for _, choice := range resp.InstallChoices {
 		switch choice {
 		case "Ranger":
-			commands.Ranger()
+			go commands.Ranger()
 		case "Nvm":
 			go commands.Nvm()
 		case "Yarn":
 			go commands.Yarn()
 		case "Pyenv":
-			commands.Pyenv()
+			go commands.Pyenv()
 		case "Fzf":
 			go commands.Fzf()
 		case "BashColor":
-			commands.BashColor()
+			go commands.BashColor()
 		case "GitAlias":
-			commands.GitAlias()
+			go commands.GitAlias()
 		}
 	}
 
-	core.Wg.Add(1)
+	core.Wg.Add(9)
 	core.Wg.Wait()
 
 	// print the final message

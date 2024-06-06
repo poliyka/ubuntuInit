@@ -9,6 +9,8 @@ import (
 )
 
 func GitAlias() {
+	defer core.Wg.Done()
+
 	fmt.Println(core.StdGreen("Installing GitAlias"))
 
 	GITCONFIG_PATH := os.Getenv("HOME") + "/.gitconfig"

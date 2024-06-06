@@ -6,6 +6,8 @@ import (
 )
 
 func BashColor() {
+	defer core.Wg.Done()
+
 	fmt.Println(core.StdGreen("Installing BashColor"))
 
 	installCmd := `sed -i -e '$a\

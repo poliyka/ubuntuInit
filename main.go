@@ -7,6 +7,7 @@ import (
 	"ubuntuInit/core"
 )
 
+
 func main() {
 	// 創建一個新的配置實例
 	resp := &core.Response{}
@@ -42,25 +43,22 @@ func main() {
 		case "Ranger":
 			commands.Ranger()
 		case "Nvm":
-			go func() {
-				commands.Nvm()
-			}()
+			go commands.Nvm()
 		case "Yarn":
-			go func() {
-				commands.Yarn()
-			}()
+			go commands.Yarn()
 		case "Pyenv":
 			commands.Pyenv()
 		case "Fzf":
-			go func() {
-				commands.Fzf()
-			}()
+			go commands.Fzf()
 		case "BashColor":
 			commands.BashColor()
 		case "GitAlias":
 			commands.GitAlias()
 		}
 	}
+
+	core.Wg.Add(1)
+	core.Wg.Wait()
 
 	// print the final message
 	fmt.Println(core.StdGreen("===================================="))

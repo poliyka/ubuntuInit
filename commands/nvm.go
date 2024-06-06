@@ -6,6 +6,8 @@ import (
 )
 
 func Nvm() {
+	defer core.Wg.Done()
+
 	fmt.Println(core.StdGreen("Installing Nvm"))
 	version := core.GetGithubRepLatestRelease("nvm-sh", "nvm")
 

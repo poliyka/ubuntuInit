@@ -6,6 +6,8 @@ import (
 )
 
 func Fzf() {
+	defer core.Wg.Done()
+
 	fmt.Println(core.StdGreen("Installing Fzf"))
 
 	installCmd := `sudo su $USER -c ${HOME}/.fzf/install << 'EOF'

@@ -6,6 +6,8 @@ import (
 )
 
 func Yarn() {
+	defer core.Wg.Done()
+
 	fmt.Println(core.StdGreen("Installing Yarn"))
 	commands := []string{
 		"curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -",

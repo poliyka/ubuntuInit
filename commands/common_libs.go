@@ -6,6 +6,7 @@ import (
 
 func CommonLibs() {
 	defer core.Wg.Done()
+	core.Lock.Lock()
 
 	commands := []string{
 		"sudo apt-get install python3-venv python3-wheel libxslt-dev libzip-dev libldap2-dev libsasl2-dev -y",
@@ -17,5 +18,5 @@ func CommonLibs() {
 		"sudo apt-get install nmon -y"}
 
 	core.ExecuteCommands(commands)
-
+	core.Lock.Unlock()
 }

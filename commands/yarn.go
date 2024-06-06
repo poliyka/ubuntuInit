@@ -7,6 +7,7 @@ import (
 
 func Yarn() {
 	defer core.Wg.Done()
+	core.Lock.Lock()
 
 	fmt.Println(core.StdGreen("Installing Yarn"))
 	commands := []string{
@@ -16,5 +17,5 @@ func Yarn() {
 	}
 
 	core.ExecuteCommands(commands)
-
+	core.Lock.Unlock()
 }

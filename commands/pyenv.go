@@ -3,7 +3,12 @@ package commands
 import (
 	"fmt"
 	"ubuntuInit/core"
+	"ubuntuInit/enum/InstallOptions"
 )
+
+func init() {
+	core.InstallAptCollection(InstallOptions.Pyenv, []string{"curl"})
+}
 
 func Pyenv() {
 	defer core.Wg.Done()
@@ -54,6 +59,7 @@ fi
 		commands = append(commands, zshrc)
 	}
 
-	// 執行所有命令
+	// 執行所有命令123
 	core.ExecuteCommands(commands)
+
 }

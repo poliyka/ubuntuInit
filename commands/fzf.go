@@ -3,7 +3,12 @@ package commands
 import (
 	"fmt"
 	"ubuntuInit/core"
+	"ubuntuInit/enum/InstallOptions"
 )
+
+func init() {
+	core.InstallAptCollection(InstallOptions.Fzf, []string{"git"})
+}
 
 func Fzf() {
 	defer core.Wg.Done()

@@ -3,7 +3,12 @@ package commands
 import (
 	"fmt"
 	"ubuntuInit/core"
+	"ubuntuInit/enum/InstallOptions"
 )
+
+func init() {
+	core.InstallAptCollection(InstallOptions.Yarn, []string{"curl"})
+}
 
 func Yarn() {
 	defer core.Wg.Done()

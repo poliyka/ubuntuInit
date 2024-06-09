@@ -8,12 +8,13 @@
       "name": "Launch Go",
       "type": "go",
       "request": "launch",
+      "debugAdapter": "dlv-dap",
       "mode": "auto",
       "program": "${workspaceFolder}/main.go",
       "console": "integratedTerminal",
       "env": {},
       "args": [],
-      "showLog": true
+      "showLog": true,
     }
   ]
 }

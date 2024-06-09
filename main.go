@@ -89,18 +89,11 @@ func main() {
 	core.Wg.Add(wgCount)
 	core.Wg.Wait()
 
-	fmt.Println(core.Ic.AptPreInstallMap)
-
 	// 顯示最終消息
 	fmt.Println(core.StdGreen("===================================="))
 	fmt.Println("Done! Ubuntu Initialize Dependencies:")
 	// print TerminalType
 	fmt.Println("TerminalType: " + core.StdGreen(resp.TerminalType))
-
-	// fmt.Println(ic.AptPreInstallMap)
-	fmt.Println(core.Ic.Options)
-	fmt.Println(core.Ic.CurrentChoices)
-	fmt.Println(core.Ic.CompareChoices())
 
 	// print InstallChoices
 	for choice, value := range installChoicesMap {

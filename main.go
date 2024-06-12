@@ -126,8 +126,7 @@ func main() {
 	// 	}
 	// }
 
-	fmt.Println("Finished. Restart your shell or reload config file.")
-	fmt.Println(core.StdYellow("source ~/.bashrc"))
+	fmt.Println(core.StdYellow("Finished. Please Restart your shell to enable changes."))
 	fmt.Println(core.StdGreen("===================================="))
 
 }

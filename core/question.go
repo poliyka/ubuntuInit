@@ -2,6 +2,7 @@ package core
 
 import (
 	"github.com/AlecAivazis/survey/v2"
+	"ubuntuInit/enum/InstallOptions"
 )
 
 // 定義問題
@@ -29,7 +30,7 @@ var QS = []*survey.Question{
 		Name: "InstallChoices",
 		Prompt: &survey.MultiSelect{
 			Message: "Select the packages you want to install:",
-			Options: []string{"Ranger", "Nvm", "Yarn", "Pyenv", "Fzf", "BashColor", "GitAlias"},
+			Options: InstallOptions.Values(),
 		},
 	},
 	// {

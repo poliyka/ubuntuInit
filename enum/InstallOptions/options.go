@@ -8,11 +8,12 @@ const (
 	Yarn
 	Pyenv
 	Fzf
+	Docker
 	BashColor
 	GitAlias
 )
 
-var optionsStr = []string{"Ranger", "Nvm", "Yarn", "Pyenv", "Fzf", "BashColor", "GitAlias"}
+var optionsStr = []string{"Ranger", "Nvm", "Yarn", "Pyenv", "Fzf", "Docker", "BashColor", "GitAlias"}
 
 // ======== 枚舉實現 ========
 

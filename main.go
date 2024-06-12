@@ -77,6 +77,9 @@ func main() {
 		case InstallOptions.Fzf.String():
 			go commands.Fzf()
 			wgCount++
+		case InstallOptions.Docker.String():
+			go commands.Docker()
+			wgCount++
 		case InstallOptions.BashColor.String():
 			go commands.BashColor()
 			wgCount++

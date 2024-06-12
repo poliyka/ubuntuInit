@@ -36,6 +36,10 @@ sudo apt-get update
 		GPGCmd,
 		// Install Docker
 		"sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin",
+		// Add docker group
+		"sudo groupadd docker",
+		// Add user to docker group
+		"sudo usermod -aG docker $USER",
 	}
 
 	core.ExecuteCommands(commands)

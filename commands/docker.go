@@ -13,6 +13,7 @@ func init() {
 func Docker() {
 	defer core.Wg.Done()
 
+	core.Lock.Lock()
 	fmt.Println(core.StdGreen("Installing Docker"))
 
 	GPGCmd := `
@@ -43,4 +44,5 @@ sudo apt-get update
 	}
 
 	core.ExecuteCommands(commands)
+	core.Lock.Unlock()
 }

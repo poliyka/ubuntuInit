@@ -3,7 +3,9 @@
 ## Usage
 
 ```sh
-sudo ./install
+# 根據環境 amd/arm
+./amd-install
+./arm-install
 ```
 
 安裝完成後
@@ -13,6 +15,9 @@ source ~/.bashrc
 ```
 
 ## Introduction
+
+### Docker
+直接幫你安裝好最新的 docker 環境
 
 ### Ranger
 
